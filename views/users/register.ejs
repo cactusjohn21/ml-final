@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head', {title: 'Inicio'}) %>
+  <title>Register | MercadoLiebre </title>
+  <body>
+    <%- include('../partials/headerNavbar') %>
+    <main id="main-register">
+      <form action="/" method="POST" class="register">
+        <section>
+            <input type="text" placeholder="Nombre y Apellido">
+            <input type="text" placeholder="Nombre de Usuario">
+            <input type="email" placeholder="E-mail">
+        </section>
+        <section>
+            <p>Fecha de Nacimiento</p>
+            <input type="date" name="" id="" class="fecha">
+            <input type="text" placeholder="Domicilio">
+        </section>                       
+        <section class="perfil">
+            <h3>Perfil del Usuario</h3>
+            <input type="radio" name="perfil" value="comprador">
+            <label for="comprador">Comprador</label>
+            <input type="radio" name="perfil" value="vendedor">
+            <label for="vendedor">Vendedor</label>
+        </section>
+        <section class="interes">
+            <h3>Intereses</h3>
+            <div>
+              <input type="checkbox" name="electro" id="electro">
+              <label for="electro">Electro</label>
+            </div>
+            <div>
+              <input type="checkbox" name="moda" id="moda">
+              <label for="moda">Moda</label>
+            </div>
+            <div>
+              <input type="checkbox" name="hogar" id="hogar">
+              <label for="hogar">Hogar</label>
+            </div>
+            <div>
+              <input type="checkbox" name="jugueteria" id="jugueteria">
+              <label for="jugueteria">Jugueteria</label>
+            </div>
+            <div>
+              <input type="checkbox" name="vida_sana" id="vida_sana">
+              <label for="vida_sana">Vida Sana</label>
+            </div>
+        </section>
+        <section>
+            <h3>Elegi tu foto de usuario</h3>
+            <input type="file" name="buscar" id="buscar">
+        </section>
+        <section>
+            <input type="password" name="contraseña" id="contraseña" placeholder="Elegi tu contraseña">
+            <input type="password" name="contraseña" id="confirmar_contraseña" placeholder="Confirma tu contraseña">
+        </section>
+        <section>
+          <div class="boton-enviar">
+            <input type="submit" value="Enviar" class="enviar">
+          </div>
+          <div class="boton-borrar">
+            <input type="reset" value="Borrar" class="borrar">
+          </div>
+        </section>                    
+      </form>      
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

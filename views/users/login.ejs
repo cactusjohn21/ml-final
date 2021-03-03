@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>
+  <title>Login | MercadoLiebre </title>
+  <body>
+    <%- include('../partials/headerNavbar') %>
+    <main id="main-login">
+        <form action="/" method="POST" class="login">
+            <section>                       
+                <input type="text" placeholder="Nombre de Usuario">
+                <input type="password" name="contraseña" id="contraseña" placeholder="Elegi tu contraseña">
+                <div class="boton-enviar">
+                  <input type="submit" value="Enviar" class="enviar"> 
+                </div>                
+            </section>                    
+        </form>      
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

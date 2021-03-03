@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mercado Liebre Argentina</title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets//bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<header class="main-header">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-5 col-md-2">
+					<a href="/" class="main-header_home-link">
+						<img src="/images/logo-mercado-liebre.svg">
+					</a>
+				</div>
+	
+				<div class="col-7 col-md-6">
+					<form action="/search" method="GET" class="search-form">
+						<input type="text" name="keywords" placeholder="Buscar productos, marcas y más" class="search-form_input">
+						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+					</form>
+				</div>
+	
+				<div class="col-12 col-md-4">
+					<a href="#" class="main-header_credit-link">
+						<i class="fas fa-hand-holding-usd"></i>
+						Comprá en cuotas y sin tarjeta de crédito
+					</a>
+				</div>
+			</div>
+	
+			<button class="btn-toggle-navbar">
+				<i class="fas fa-bars"></i>
+			</button>
+	
+			<nav class="main-navbar">
+				<ul class="left-navbar">
+					<li><a href="/products">Todos los productos</a></li>
+					<li><a href="#">Ofertas</a></li>
+					<li><a href="#">Tiendas Oficiales</a></li>
+					<li><a href="/products/create">Vender</a></li>
+					<li><a href="#">Ayuda</a></li>
+				</ul>
+	
+				<ul class="right-navbar">
+					<li><a href="#">Creá tu cuenta <i class="far fa-address-card"></i></a></li>
+					<li><a href="#">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+					<li><a href="#">Mis compras <i class="fas fa-shopping-basket"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- /Header -->
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Estás editando: <i><%= edit.name %></i></h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="/products/update/<%= edit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+				<div class="row product-detail">
+					<div class="col-12 col-md-6">
+						<label for="name" class="form-label">Nombre del producto:</label>
+						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= edit.name %>">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="price" class="form-label">Precio del producto:</label>
+						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= edit.price %>">>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="discount" class="form-label">Descuento:</label>
+						<input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input" value="<%= edit.discount %>">>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="category" class="form-label">Categoría:</label>
+						<select name="category" id="category" class="form-input">
+							<option value="">Elegí</option>
+							<option value="in-sale">En oferta</option>
+							<option value="visited" >Últimos agregados</option>
+						</select>
+					</div>
+					<div class="col-12">
+						<label for="description" class="form-label">Descipción:</label>
+						<textarea name="description" id="description" class="form-input"><%= edit.description %></textarea>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="image" class="form-label">Imagen del producto:</label>
+						<img src="/images/products/<%= edit.image %>" alt="imagen de producto">
+						<input type="file" name="image" class="form-input">
+					</div>
+					<div class="col-12">
+						<button type="submit" class="buy-now-button">Guardar producto</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<footer class="main-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-4">
+					<article class="footer-data">
+						<i class="fas fa-credit-card"></i>
+						<h2>Pagá con tarjeta o en efectivo</h2>
+						<p>Con Mercado Liebre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y siempre
+							es seguro!</p>
+					</article>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="footer-data">
+						<i class="fas fa-gift"></i>
+						<h2>Envío gratis desde $ 1.999</h2>
+						<p>Solo por estar registrado en Mercado Liebre tenés envíos gratis en miles de productos. Es un beneficio
+							de Mercado Puntos.</p>
+					</article>
+				</div>
+				<div class="col-12 col-lg-4">
+					<article class="footer-data">
+						<i class="fas fa-user-shield"></i>
+						<h2>Seguridad, de principio a fin</h2>
+						<p>¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no puedas hacer, porque estás siempre
+							protegido.</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="sub-footer">
+		<div class="container">
+			<p>Copyright © 1999-2019 MercadoLiebre S.R.L.</p>
+		</div>
+	</div>
+	<!-- /footer -->
+</body>	
+</html>

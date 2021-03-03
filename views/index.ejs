@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include('./partials/head', {title: 'Inicio'}) %>
+  <title>Inicio | MercadoLiebre </title>
+
+<body>
+
+  <%- include('./partials/headerNavbar') %>
+  
+  <section id="banner">
+    <img src="images/img-home-banner.jpg" alt="banner">
+  </section>
+  <main id="principal">
+    <div>
+      <h1 class="titles">Basado en tu última visita</h1>
+    </div>  
+    <section class="visitas">
+          
+
+      <% for(let visit of visited) { %> 
+
+        <a href="/products/detail/<%= visit.id %>">
+          <article class="arti">            
+            <img src="images/products/<%= visit.image %>" alt="Cafetera Moulinex">
+            <div class="bloque">
+              <div class="icono">
+                <i class="fas fa-truck"></i>
+              </div>
+              <div class="total">          
+                <span class="price">$<%=  visit.price %></span>         
+                <span class="discount"><%=  visit.discount %>% OFF</span>
+              </div>  
+              <p class="description"><%= visit.name %></p>
+            </div>          
+          </article>
+        </a>
+
+      <% } %>  
+
+    </section>
+    <div>
+      <h2 class="titles">Ofertas</h2>
+    </div>
+    <section class="ofertas">
+      
+      <% for(let offer of ofertas) { %>
+
+        <a href="/products/detail/<%= offer.id %>">
+          <article class="arti">
+            <img src="images/products/<%= offer.image %>" alt="<%= offer.name%>">
+            <div class="bloque">
+              <div class="icono">
+                <i class="fas fa-truck"></i>
+              </div>
+              <div class="total">          
+                <span class="price">$ <%=  offer.price %></span>         
+                <span class="discount"><%=  offer.discount %>% OFF</span>
+              </div>  
+              <p class="description"><%=  offer.name %></p>
+            </div>
+          </article>
+        </a>
+
+      <% } %>
+    </section>
+  </main>
+  <%- include('./partials/footer') %>  
+</body>
+</html>
